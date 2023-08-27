@@ -1,0 +1,67 @@
+/*  body {
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+*/
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #1e1e1e;
+  border: 1px solid #303030;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  word-break: break-word;
+}
+
+.note-title {
+  text-align: center;
+  color: #ffd700;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  font-size: 24px; /* Larger title font size for emphasis */
+}
+
+.note-content {
+  margin-top: 10px;
+  margin-bottom: 20px; /* Increased margin for better separation */
+  font-size: 16px; /* Smaller content font size for readability */
+  line-height: 1.5; /* Increased line height for better readability */
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.note-date-created, .note-last-modified {
+  color: #777;
+  margin-bottom: 10px; /* Increased margin for better separation */
+  font-size: 14px; /* Smaller date font size */
+}
+
+.tags {
+  margin-top: 10px;
+}
+
+.taglistcontainer {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background-color: #333;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  font-size: 14px; /* Smaller tag font size */
+}
+
+/* Rest of your previous CSS remains unchanged */
