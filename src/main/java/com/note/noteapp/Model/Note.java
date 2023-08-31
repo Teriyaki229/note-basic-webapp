@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Document(collection = "notes")
-@Data
+@Data   
 @NoArgsConstructor
 @AllArgsConstructor
 public class Note {

@@ -13,26 +13,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.ltr {
-  text-align: left;
-}
-
-.rtl {
-  text-align: right;
-}
-
-.editor-placeholder {
-  color: dimgray;
-  overflow: hidden;
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  user-select: none;
-  pointer-events: none;
-}
-
-.editor-paragraph {
-  margin: 0 0 15px 0;
-  position: relative;
-}

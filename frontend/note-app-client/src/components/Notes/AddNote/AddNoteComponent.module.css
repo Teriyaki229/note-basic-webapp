@@ -1,0 +1,169 @@
+#wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+.wrapperContainer{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+#submitBtn {
+  position: relative;
+  right: -0.5%;
+  width: 7.5%;
+  margin-top: 1.5%;
+  appearance: none;
+  backface-visibility: hidden;
+  background-color: #27ae60;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(39, 174, 96, 0.15) 0 4px 9px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: Inter, -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 1.5;
+  outline: none;
+  overflow: hidden;
+  padding: 13px 20px;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+#submitBtn:hover {
+  background-color: #1e8449;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: 0.35s;
+}
+
+#submitBtn:active {
+  transform: translateY(2px);
+  transition-duration: 0.35s;
+}
+
+#submitBtn:hover {
+  box-shadow: rgba(39, 174, 96, 0.2) 0 6px 12px;
+}
+.inputField {
+  font-size: large;
+  margin-top: 10px;
+  width: 80%;
+  background-color: #121212;
+  color: #FFFFFF;
+  border: 2px solid #303030;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.label {
+  color: #FFFFFF;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.tag {
+  background-color: hsl(145, 63%, 32%);
+  color: #fff;
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.tag:hover{
+  background-color: hsl(145, 63%, 26%);
+}
+
+.tagInput {
+  margin-top: 10px;
+  width: fit-content;
+  background-color: #121212;
+  color: #FFFFFF;
+  border: 2px solid #303030;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.addTagButton {
+  margin-left: 5px;
+  background-color: #27ae60;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  cursor: pointer;
+}
+
+.addTagButton:hover {
+  background-color: #1e8449;
+}
+
+.removeTagButton {
+  margin-left: 5px;
+  background-color: hsl(0, 63%, 42%);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  cursor: pointer;
+}
+
+.removeTagButton:hover {
+  background-color: hsl(0, 63%, 32%);
+}
+.deletable {
+  background-color: #d9534f;
+  color: #fff;
+}
+.tooltipContainer {
+  position: relative;
+  display: inline-block;
+}
+.tooltip {
+  visibility: hidden;
+  margin-bottom: 10%;
+  width: 300%;
+  background-color: hsl(145, 63%, 22%);
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltipContainer:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+.questionMark {
+  display: inline-block;
+  margin-left: 5px;
+  cursor: default;
+  border: #1e8449 2px solid;
+  border-radius: 100%;
+}
+
+.questionMark span {
+  font-size: 14px;
+  color: #1e8449; 
+}

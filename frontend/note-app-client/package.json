@@ -11,13 +11,15 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
+    "@tinymce/tinymce-react": "^4.3.0",
     "axios": "^1.4.0",
-    "lexical": "^0.12.0",
+    "jodit-react": "^1.3.39",
     "mdi-material-ui": "^7.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
+    "tinymce": "^6.6.2",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
