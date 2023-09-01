@@ -20,6 +20,7 @@ public class NoteService {
 
     public Note createNote(Note newNote) {
         newNote.setVisibleId(UUID.randomUUID());
+        newNote.setLast_modified(newNote.getDate_created());
         return noteRepository.save(newNote);
     }
 

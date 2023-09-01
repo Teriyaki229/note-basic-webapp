@@ -1,56 +1,86 @@
-import React, { Component, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import styles from "./AddNoteComponent.module.css";
 import Tag from "./Tags";
 import Editor from "./Editor";
+import CustomAlert from "../CustomAlert";
+import NoteService from "../../../Service/NoteService";
 
-function handleSubmitClick() {}
 
-function useFieldOnChange(event, id) {
-  const noteRef = useRef({
-    title: "",
-    tags: [],
-    content: "",
-  });
-  noteRef.current({
-    [id]: id==="titleInput" ? event.target.value : event,
-  })
-  console.log(noteRef.current)
-}
+const AddNoteComponent = () => {
+  const handleDismissAlert = () => {
+    setAlertMessage("");
+  };
+  const [alertMessage, setAlertMessage] = useState("");
 
-class AddNoteComponent extends Component {
-  render() {
-    return (
-      <div className={styles.wrapperContainer}>
-        <h2>What's on Your Mind Today?</h2>
-        <br />
-        <label htmlFor="titleInput" className={styles.label}>
-          Title
-        </label>
-        <br />
-        <input
-          className={styles.inputField}
-          type="text"
-          id="titleInput"
-          name="titleInput"
-          placeholder="Type a title here"
-          onChange={(event) => useFieldOnChange(event, "titleInput")}
-        />
-        <br />
-        <label className={styles.label}>Tags:</label>
-        <Tag onTagChange={(event) => useFieldOnChange(event, "tags")} />
-        <label htmlFor="contentText" className={styles.label}>
-          Note it down
-        </label>
-        <br />
-        <Editor customOnChange={(event) => useFieldOnChange(event, "editor")} />
-        <div id={styles.wrapper}>
-          <div id={styles.submitBtn} onClick={handleSubmitClick}>
-            Submit
-          </div>
+  const titleRef = useRef("");
+  const tagsRef = useRef([]);
+  const contentRef = useRef("");
+
+  function handleSubmitClick() {
+    const title = titleRef.current.value;
+    const tags = tagsRef.current;
+    const content = contentRef.current;
+    const d = new Date();
+    const hour = d.getHours();
+    const minute = d.getMinutes();
+    const date_created = `${d.getDate()}/${
+      d.getMonth() + 1
+    }/${d.getFullYear()} at ${hour > 12 ? hour+":"+ minute+" pm" : hour+":"+ minute+" am"}`;
+    if (!title.trim() && !tags.length && !content.trim()) {
+      setAlertMessage("All fields are empty!");
+    } else if (!title.trim() && !tags.length) {
+      setAlertMessage("Title and tags cannot be empty!");
+    } else if (!title.trim() && !content.trim()) {
+      setAlertMessage("Title and content cannot be empty!");
+    } else if (!tags.length && !content.trim()) {
+      setAlertMessage("Tags and content cannot be empty!");
+    } else if (!title.trim()) {
+      setAlertMessage("You cannot have an empty title!");
+    } else if (!tags.length) {
+      setAlertMessage("You have to at least set one tag!");
+    } else if (!content.trim()) {
+      setAlertMessage("Content cannot be empty!");
+    } else {
+      NoteService.addNote(title, tags, content, date_created)
+        .then((response) => console.log(response))
+        .catch((error) => console.log(error));
+    }
+  }
+
+  return (
+    <div className={styles.wrapperContainer}>
+      {alertMessage && (
+        <CustomAlert message={alertMessage} onDismiss={handleDismissAlert} />
+      )}
+      <h2>What's on Your Mind Today?</h2>
+      <br />
+      <label htmlFor="titleInput" className={styles.label}>
+        Title
+      </label>
+      <br />
+      <input
+        className={styles.inputField}
+        type="text"
+        id="titleInput"
+        name="titleInput"
+        placeholder="Type a title here"
+        ref={titleRef}
+      />
+      <br />
+      <label className={styles.label}>Tags:</label>
+      <Tag onTagChange={(event) => (tagsRef.current = event)} />
+      <label htmlFor="contentText" className={styles.label}>
+        Note it down
+      </label>
+      <br />
+      <Editor customOnChange={(event) => (contentRef.current = event)} />
+      <div id={styles.wrapper}>
+        <div id={styles.submitBtn} onClick={handleSubmitClick}>
+          Submit
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default AddNoteComponent;

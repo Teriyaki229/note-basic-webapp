@@ -10,8 +10,13 @@ class NoteService {
   getNoteById(id){
     return axios.get(NOTE_BASE_API_URL+id);
   }
-  addNote(){
-    return axios.post(NOTE_BASE_API_URL+'add');
+  addNote(title, tags, content, date_created){
+    return axios.post(NOTE_BASE_API_URL+'add',{
+      title: title,
+      tags: tags,
+      content: content,
+      date_created: date_created
+    });
   }
 }
 
