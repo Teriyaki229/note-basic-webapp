@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./CustomAlert.module.css";
 
-const CustomAlert = ({ message, onDismiss }) => {
+const CustomAlert = ({ message, onDismiss, redOrGreen }) => {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
@@ -17,7 +17,13 @@ const CustomAlert = ({ message, onDismiss }) => {
 
   return (
     visible && (
-      <div className={`${styles.alert} ${styles.slideIn}`}>
+      <div
+        className={
+          redOrGreen === "red"
+            ? `${styles.alertError} ${styles.slideIn}`
+            : `${styles.alertSuccess} ${styles.slideIn}`
+        }
+      >
         <p>{message}</p>
       </div>
     )

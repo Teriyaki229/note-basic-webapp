@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import styles from "./AddNoteComponent.module.css";
 import Tag from "./Tags";
-import Editor from "./Editor";
+import Editor from "../../Editor/Editor";
 import CustomAlert from "../CustomAlert";
 import NoteService from "../../../Service/NoteService";
 
@@ -11,21 +11,23 @@ const AddNoteComponent = () => {
     setAlertMessage("");
   };
   const [alertMessage, setAlertMessage] = useState("");
-
+  const [alertColor, setAlertColor] = useState("red");
+  
   const titleRef = useRef("");
   const tagsRef = useRef([]);
-  const contentRef = useRef("");
+  const contentRef = useRef("")
 
   function handleSubmitClick() {
     const title = titleRef.current.value;
     const tags = tagsRef.current;
     const content = contentRef.current;
+    
     const d = new Date();
     const hour = d.getHours();
     const minute = d.getMinutes();
     const date_created = `${d.getDate()}/${
       d.getMonth() + 1
-    }/${d.getFullYear()} at ${hour > 12 ? hour+":"+ minute+" pm" : hour+":"+ minute+" am"}`;
+    }/${d.getFullYear()} at ${hour > 12 ? hour-12+":"+ minute+" pm" : hour+":"+ minute+" am"}`;
     if (!title.trim() && !tags.length && !content.trim()) {
       setAlertMessage("All fields are empty!");
     } else if (!title.trim() && !tags.length) {
@@ -42,7 +44,19 @@ const AddNoteComponent = () => {
       setAlertMessage("Content cannot be empty!");
     } else {
       NoteService.addNote(title, tags, content, date_created)
-        .then((response) => console.log(response))
+        .then((response)=> {
+          if(response.status===201){
+            setAlertColor("green");
+            setAlertMessage("Note Added!");
+            titleRef.current.value="";
+            // editorContentRef.current="";
+            // tagsRef.current=[];
+          }
+          else{
+            setAlertColor("red")
+            setAlertMessage("Something went wrong!")
+          }
+        })
         .catch((error) => console.log(error));
     }
   }
@@ -50,7 +64,7 @@ const AddNoteComponent = () => {
   return (
     <div className={styles.wrapperContainer}>
       {alertMessage && (
-        <CustomAlert message={alertMessage} onDismiss={handleDismissAlert} />
+        <CustomAlert message={alertMessage} onDismiss={handleDismissAlert} redOrGreen={alertColor} />
       )}
       <h2>What's on Your Mind Today?</h2>
       <br />
@@ -73,7 +87,7 @@ const AddNoteComponent = () => {
         Note it down
       </label>
       <br />
-      <Editor customOnChange={(event) => (contentRef.current = event)} />
+      <Editor customOnChange={(event) => (contentRef.current = event)}/>
       <div id={styles.wrapper}>
         <div id={styles.submitBtn} onClick={handleSubmitClick}>
           Submit

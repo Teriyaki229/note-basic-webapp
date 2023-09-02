@@ -1,8 +1,3 @@
-/* body {
-  background-color: #121212;
-  color: #ffffff;
-}
-*/
 .homepage {
   padding: 20px;
 }
@@ -55,21 +50,25 @@
 .note-preview {
   background-color: #1e1e1e;
   border: 1px solid #303030;
-  padding: 10px;
+  padding: 20px;
   border-radius: 5px;
+  height: 100px; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between; 
   position: relative;
-  overflow: hidden; 
-  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  color: #ffffff;
 }
 
-.note-preview .preview-content {
-  padding-left: 12px;
+
+.note-preview .preview-content { 
   max-height: 80px; 
   opacity: 0.5; 
-  margin-top: 5px;
 }
 
-.note-preview:hover .preview-content {
+.note-preview:hover .preview-content { 
   opacity: 1; 
 }
 

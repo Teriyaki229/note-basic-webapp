@@ -7,7 +7,7 @@ const Tag = ({ onTagChange }) => {
   const [tags, setTags] = useState([]);
   const [deletable, setDeletable] = useState({});
   const [alertMessage, setAlertMessage] = useState('');
-
+  
   const handleTagInput = (event) => {
     setTagInput(event.target.value);
   };
@@ -70,7 +70,7 @@ const Tag = ({ onTagChange }) => {
 
   return (
     <div>
-      {alertMessage && <CustomAlert message={alertMessage} onDismiss={handleDismissAlert} />}
+      {alertMessage && <CustomAlert message={alertMessage} onDismiss={handleDismissAlert} redOrGreen={"red"}/>}
       {tags.map((tag) => (
         <span
           key={tag}
