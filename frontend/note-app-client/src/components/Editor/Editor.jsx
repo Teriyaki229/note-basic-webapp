@@ -1,15 +1,20 @@
 import JoditEditor from "jodit-react";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import "./Editor.css";
 const Editor = ({ customOnChange, clearContent }) => {
   const [content, setContent] = useState("");
   const editor = useRef(null);
 
-  useEffect(() => {
-    if (clearContent && editor.current) {
-      editor.current.value = "";
-    }
-  }, [clearContent]);
+  // useEffect(() => {
+  //   if (clearContent && editor.current) {
+  //     editor.current.value = "";
+  //   }
+  // }, [clearContent]);
+  // not entirely sure if i should opt for if instead of useEffect
+
+  if(clearContent){
+    editor.current.value="";
+  }
 
   return (
     <div>

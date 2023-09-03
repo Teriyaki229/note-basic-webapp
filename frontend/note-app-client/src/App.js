@@ -1,4 +1,3 @@
-//import "./components/Editor/EditorWrapper/EditorTheme.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ListNotesComponent from "./components/Notes/ListNotes/ListNotesComponent";
 import HeaderComponent from "./components/HeaderComponent";
