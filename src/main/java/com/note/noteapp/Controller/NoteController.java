@@ -16,7 +16,7 @@ import java.util.List;
 public class NoteController {
     @Autowired
     private NoteService noteService;
-    @GetMapping(value="/home", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value="/", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Note>> getAllNotes(){
         return new ResponseEntity<>(noteService.allNotes(), HttpStatus.OK);
     }
