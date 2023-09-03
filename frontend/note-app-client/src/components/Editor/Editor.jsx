@@ -1,9 +1,21 @@
 import JoditEditor from "jodit-react";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import "./Editor.css";
-const Editor = ({customOnChange}) => {
+const Editor = ({ customOnChange, clearContent }) => {
   const [content, setContent] = useState("");
   const editor = useRef(null);
+
+  useEffect(() => {
+    console.log("clearContent: " + clearContent);
+    if (clearContent && editor.current) {
+      console.log(
+        "editor.current: " + editor.current,
+        "editor.current.selection: ",
+        editor.current.selection
+      );
+      editor.current.value = "";
+    }
+  }, [clearContent]);
 
   return (
     <div>
@@ -21,6 +33,3 @@ const Editor = ({customOnChange}) => {
 };
 
 export default Editor;
-
-
-
