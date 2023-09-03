@@ -1,3 +1,9 @@
+/**
+ * A component that allows users to add and remove tags.
+ * @param {function} onTagChange - A callback function that is called when the tags are changed.
+ * @param {function} clearTags - A function that clears the tags.
+ * @returns The Tag component.
+ */
 import { useState, useEffect } from "react";
 import styles from "./AddNoteComponent.module.css";
 import CustomAlert from '../CustomAlert';

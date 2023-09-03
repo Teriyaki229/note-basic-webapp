@@ -1,0 +1,79 @@
+.confirm {
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    min-width: 280px;
+    max-width: 500px;
+    height: auto;
+    background: #121212; 
+    border-radius: 10px;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #303030; 
+    animation: fade 1s ease 1 forwards;
+    z-index: 1000; 
+  }
+  
+.confirm h1 {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 1.5rem 1rem 0.5rem;
+  color: #ffffff; 
+}
+
+.confirm p {
+  text-align: center;
+  font-size: 1rem;
+  margin: 0 2rem 4.5rem;
+  color: #ffffff; 
+}
+
+.confirm button {
+  background-color: #121212;
+  border: none;
+  color: #ffd700; 
+  height: 3rem;
+  font-size: 1rem;
+  width: 50%;
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
+}
+
+.confirm button:nth-of-type(1) {
+  border-top: 1px solid #303030; 
+  border-right: 1px solid #303030; 
+  left: 0;
+  border-radius: 0 0 0 10px;
+}
+
+.confirm button:nth-of-type(2) {
+  border-top: 1px solid #303030; 
+  right: 0;
+  border-radius: 0 0 10px 0;
+}
+
+.confirm button:focus,
+.confirm button:nth-of-type(1):hover {
+  font-weight: bold;
+  background: #f44034; 
+  color: #ffffff;
+}
+
+.confirm button:nth-of-type(2):hover {
+    font-weight: bold;
+    background: #28a745; 
+    color: #ffffff; 
+  }
+  
+
+.confirm button:active {
+  background: #1e1e1e; 
+  color: #ffffff;
+}
+
+.confirm a {
+  color: #bb86fc; 
+}
