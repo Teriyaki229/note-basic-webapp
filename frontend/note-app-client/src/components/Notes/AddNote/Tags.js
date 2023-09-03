@@ -1,13 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./AddNoteComponent.module.css";
 import CustomAlert from '../CustomAlert';
 
-const Tag = ({ onTagChange }) => {
+const Tag = ({ onTagChange, clearTags}) => {
   const [tagInput, setTagInput] = useState("");
   const [tags, setTags] = useState([]);
   const [deletable, setDeletable] = useState({});
   const [alertMessage, setAlertMessage] = useState('');
   
+  useEffect(()=>{
+    console.log("clearTags:", clearTags,"tags: ", tags)
+    if(clearTags && tags){
+      setTags([]);
+    }
+  },[clearTags])
+
   const handleTagInput = (event) => {
     setTagInput(event.target.value);
   };

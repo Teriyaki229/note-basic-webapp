@@ -17,6 +17,7 @@ const AddNoteComponent = () => {
   const tagsRef = useRef([]);
   const contentRef = useRef("");
   const clearEditor = useRef("");
+  const deleteTags = useRef(false)
 
   function handleSubmitClick() {
     const title = titleRef.current.value;
@@ -53,7 +54,7 @@ const AddNoteComponent = () => {
             setAlertMessage("Note Added!");
             titleRef.current.value = "";
             clearEditor.current = "true";
-            // tagsRef.current=[];
+            deleteTags.current = true;
           } else {
             setAlertColor("red");
             setAlertMessage("Something went wrong!");
@@ -88,7 +89,7 @@ const AddNoteComponent = () => {
       />
       <br />
       <label className={styles.label}>Tags:</label>
-      <Tag onTagChange={(event) => (tagsRef.current = event)} />
+      <Tag onTagChange={(event) => (tagsRef.current = event)} clearTags={deleteTags.current}/>
       <label htmlFor="contentText" className={styles.label}>
         Note it down
       </label>

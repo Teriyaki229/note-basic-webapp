@@ -6,13 +6,7 @@ const Editor = ({ customOnChange, clearContent }) => {
   const editor = useRef(null);
 
   useEffect(() => {
-    console.log("clearContent: " + clearContent);
     if (clearContent && editor.current) {
-      console.log(
-        "editor.current: " + editor.current,
-        "editor.current.selection: ",
-        editor.current.selection
-      );
       editor.current.value = "";
     }
   }, [clearContent]);
