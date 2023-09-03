@@ -4,6 +4,10 @@ import NoteService from "../../../Service/NoteService";
 import { Link } from "react-router-dom";
 import DOMPurify from "dompurify";
 
+/**
+ * A functional component that renders a list of notes.
+ * @returns The rendered list of notes.
+ */
 const ListNotesComponent = () => {
   const [note, setNote] = useState({
     notes: [],

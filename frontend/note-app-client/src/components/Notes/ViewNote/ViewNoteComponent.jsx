@@ -5,6 +5,10 @@ import "./ViewNoteComponent.css";
 import parse from 'html-react-parser';
 import DOMPurify from "dompurify";
 
+/**
+ * A component that displays a single note.
+ * @returns The rendered JSX for the ViewNoteComponent.
+ */
 function ViewNoteComponent() {
   const { id } = useParams();
   const [note, setNote] = useState({});
