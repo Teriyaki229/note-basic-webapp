@@ -1,6 +1,12 @@
 import JoditEditor from "jodit-react";
 import { useRef, useState } from "react";
 import "./Editor.css";
+/**
+ * A component that represents an editor.
+ * @param {{function}} customOnChange - A custom function to handle the onChange event of the editor.
+ * @param {{function}} clearContent - A function to clear the content of the editor.
+ * @returns The Editor component.
+ */
 const Editor = ({ customOnChange, clearContent }) => {
   const [content, setContent] = useState("");
   const editor = useRef(null);
