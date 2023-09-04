@@ -4,7 +4,7 @@ import NoteService from "../../../Service/NoteService";
 import { Link } from "react-router-dom";
 import DOMPurify from "dompurify";
 import NoteOptions from "../NoteOptions/NoteOptions";
-
+import ConfirmDialogBox from 'src/components/Notes/utils/ConfirmDialogBox.jsx'
 /**
  * A functional component that renders a list of notes.
  * @returns The rendered list of notes.
@@ -14,7 +14,7 @@ const ListNotesComponent = () => {
     notes: [],
   });
 
-  const [showOptions, setShowOptions] = useState(false);
+  const [hoveredNoteId, setHoveredNoteId] = useState(null);
 
   useEffect(() => {
     NoteService.getNotes()
@@ -41,12 +41,18 @@ const ListNotesComponent = () => {
       <Link to={`/add`}>
         <div className="create-new-note-btn">Create a new note</div>
       </Link>
-      <div className="note-container" onMouseEnter={()=>setShowOptions(true)} onMouseLeave={()=>setShowOptions(false)}>
+      <div className="note-container">
         {note.notes &&
           note.notes.map((note) => (
-            <Link to={`/view/${note.visibleId}`} className="note-preview">
+            <Link
+              to={`/view/${note.visibleId}`}
+              className="note-preview"
+              onMouseEnter={() => setHoveredNoteId(note.visibleId)}
+              onMouseLeave={() => setHoveredNoteId(null)}
+            >
               <div key={note.visibleId}>
-                <h3 className="preview-title">{note.title}</h3>{showOptions && (<NoteOptions />)}
+                <h3 className="preview-title">{note.title}</h3>
+                {hoveredNoteId === note.visibleId && <NoteOptions />}
                 <p className="preview-content">
                   {note.content && sanitizeHtmlAndStripHtmlTags(note.content)}
                 </p>
