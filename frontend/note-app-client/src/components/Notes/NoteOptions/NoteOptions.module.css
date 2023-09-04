@@ -1,0 +1,157 @@
+/* Delete Icon */
+.iconTrash {
+  border: 1px solid #E5E9EA;
+  border-radius: 10%;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 5px; /* Adjust the top position for placement */
+  right: 5px; /* Adjust the right position for top-right placement */
+  z-index: 1;
+  transition: transform 0.1s ease;
+}
+
+.iconTrash:hover {
+  transform: scale(1.2);
+}
+
+.iconTrash .trashLid {
+  width: 62%;
+  height: 10%;
+  position: absolute;
+  left: 50%;
+  margin-left: -31%;
+  top: 10.5%;
+  background-color: #000;
+  border-top-left-radius: 80%;
+  border-top-right-radius: 80%;
+  -webkit-transform: rotate(-5deg);
+  -moz-transform: rotate(-5deg);
+  -ms-transform: rotate(-5deg);
+  transform: rotate(-5deg); 
+}
+
+
+.iconTrash .trashLid:after {
+  content: "";
+  width: 26%;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  margin-left: -13%;
+  margin-top: -10%;
+  background-color: inherit;
+  border-top-left-radius: 30%;
+  border-top-right-radius: 30%;
+  -webkit-transform: rotate(-1deg);
+  -moz-transform: rotate(-1deg);
+  -ms-transform: rotate(-1deg);
+  transform: rotate(-1deg); 
+}
+
+.iconTrash .trashContainer {
+  width: 56%;
+  height: 65%;
+  position: absolute;
+  left: 50%;
+  margin-left: -28%;
+  bottom: 10%;
+  background-color: #000;
+  border-bottom-left-radius: 15%;
+  border-bottom-right-radius: 15%;
+}
+
+.iconTrash .trashContainer:after {
+  content: "";
+  width: 110%;
+  height: 12%;
+  position: absolute;
+  left: 50%;
+  margin-left: -55%;
+  top: 0;
+  background-color: inherit;
+  border-bottom-left-radius: 45%;
+  border-bottom-right-radius: 45%;
+}
+
+.iconTrash .trashLine1 {
+  width: 4%;
+  height: 50%;
+  position: absolute;
+  left: 38%;
+  margin-left: -2%;
+  bottom: 17%;
+  background-color: #252527;
+}
+
+.iconTrash .trashLine2 {
+  width: 4%;
+  height: 50%;
+  position: absolute;
+  left: 50%;
+  margin-left: -2%;
+  bottom: 17%;
+  background-color: #252527;
+}
+
+.iconTrash .trashLine3 {
+  width: 4%;
+  height: 50%;
+  position: absolute;
+  left: 62%;
+  margin-left: -2%;
+  bottom: 17%;
+  background-color: #252527;
+}
+
+/* Edit Icon */
+/* Container for Pencil Icon */
+.pencilWrapper {
+  width: 30px; /* Adjust the size as needed */
+  height: 30px; /* Adjust the size as needed */
+  border: 2px solid #E5E9EA; /* Add a solid border around the box */
+  border-radius: 10%; /* Make the corners of the box rounded */
+  position: absolute;
+  right: 5px;
+  top: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Pencil Icon */
+.pencil {
+  width: 3px;
+  height: 17.5px;
+  background: #E5E9EA;
+  position: absolute;
+  transform: rotate(30deg);
+}
+
+.pencilWrapper:hover{
+  transform: scale(1.1);
+}
+.pencilWrapper:hover .pencil{
+  transform: scale(1.1);
+}
+
+.pencil::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #f6f6f6;
+  top: -13px;
+}
+
+.pencil::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #afafaf;
+  left: 1px;
+  bottom: -4px;
+  transform: rotate(45deg);
+}
