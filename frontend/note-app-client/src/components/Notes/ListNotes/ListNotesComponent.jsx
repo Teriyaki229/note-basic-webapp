@@ -4,7 +4,8 @@ import NoteService from "../../../Service/NoteService";
 import { Link } from "react-router-dom";
 import DOMPurify from "dompurify";
 import NoteOptions from "../NoteOptions/NoteOptions";
-import ConfirmDialogBox from 'src/components/Notes/utils/ConfirmDialogBox.jsx'
+import ConfirmDialogBox from "../utils/ConfirmDialogBox";
+
 /**
  * A functional component that renders a list of notes.
  * @returns The rendered list of notes.
