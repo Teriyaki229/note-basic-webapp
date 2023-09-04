@@ -6,7 +6,7 @@
  */
 import { useState, useEffect } from "react";
 import styles from "./AddNoteComponent.module.css";
-import CustomAlert from '../CustomAlert';
+import CustomAlert from "../utils/CustomAlert";
 
 const Tag = ({ onTagChange, clearTags}) => {
   const [tagInput, setTagInput] = useState("");
