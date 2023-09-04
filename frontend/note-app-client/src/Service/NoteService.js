@@ -1,11 +1,14 @@
 import axios from "axios";
 
-const NOTE_HOME_PAGE_URL = "http://localhost:8080/home";
-const NOTE_BASE_API_URL = "http://localhost:8080/"
 
+const NOTE_BASE_API_URL = `http://localhost:8080/`
+
+/**
+ * A service class for API calls.
+ */
 class NoteService {
   getNotes() {
-    return axios.get(NOTE_HOME_PAGE_URL);
+    return axios.get(NOTE_BASE_API_URL);
   }
   getNoteById(id){
     return axios.get(NOTE_BASE_API_URL+id);
@@ -17,6 +20,9 @@ class NoteService {
       content: content,
       date_created: date_created
     });
+  }
+  deleteNotebyId(id){
+    return axios.delete(NOTE_BASE_API_URL+id)
   }
 }
 
