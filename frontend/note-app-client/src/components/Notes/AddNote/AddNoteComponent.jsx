@@ -2,9 +2,9 @@ import React, { useRef, useState } from "react";
 import styles from "./AddNoteComponent.module.css";
 import Tag from "./Tags";
 import Editor from "../../Editor/Editor";
-import CustomAlert from "../CustomAlert";
+import CustomAlert from "../utils/CustomAlert";
 import NoteService from "../../../Service/NoteService";
-import ConfirmDialogBox from "./ConfirmDialogBox";
+import ConfirmDialogBox from "../utils/ConfirmDialogBox";
 
 /**
  * A component that allows users to add a note.
