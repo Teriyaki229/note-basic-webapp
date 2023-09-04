@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import "./styles.css";
 
 class HeaderComponent extends Component {
+  /**
+   * Render method for the component.
+   * @returns The JSX code for rendering the component.
+   */
   render() {
     return (
       <div>
