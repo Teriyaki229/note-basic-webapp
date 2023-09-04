@@ -3,6 +3,7 @@ import "./ListNotesComponent.css";
 import NoteService from "../../../Service/NoteService";
 import { Link } from "react-router-dom";
 import DOMPurify from "dompurify";
+import NoteOptions from "../NoteOptions/NoteOptions";
 
 /**
  * A functional component that renders a list of notes.
@@ -13,10 +14,12 @@ const ListNotesComponent = () => {
     notes: [],
   });
 
+  const [showOptions, setShowOptions] = useState(false);
+
   useEffect(() => {
     NoteService.getNotes()
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         setNote({
           notes: response.data,
         });
@@ -38,12 +41,12 @@ const ListNotesComponent = () => {
       <Link to={`/add`}>
         <div className="create-new-note-btn">Create a new note</div>
       </Link>
-      <div className="note-container">
+      <div className="note-container" onMouseEnter={()=>setShowOptions(true)} onMouseLeave={()=>setShowOptions(false)}>
         {note.notes &&
           note.notes.map((note) => (
             <Link to={`/view/${note.visibleId}`} className="note-preview">
               <div key={note.visibleId}>
-                <h3 className="preview-title">{note.title}</h3>
+                <h3 className="preview-title">{note.title}</h3>{showOptions && (<NoteOptions />)}
                 <p className="preview-content">
                   {note.content && sanitizeHtmlAndStripHtmlTags(note.content)}
                 </p>
@@ -56,5 +59,3 @@ const ListNotesComponent = () => {
 };
 
 export default ListNotesComponent;
-
-
