@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ListNotesComponent from "./components/Notes/ListNotes/ListNotesComponent";
-import HeaderComponent from "./components/HeaderComponent";
+import HeaderComponent from "./components/utils/HeaderComponent";
 import ViewNoteComponent from "./components/Notes/ViewNote/ViewNoteComponent";
 import AddNoteComponent from "./components/Notes/AddNote/AddNoteComponent";
 import './index.css';
