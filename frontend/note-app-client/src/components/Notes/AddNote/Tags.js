@@ -15,7 +15,7 @@ const Tag = ({ onTagChange, clearTags}) => {
   const [alertMessage, setAlertMessage] = useState('');
   
   useEffect(()=>{
-    console.log("clearTags:", clearTags,"tags: ", tags)
+    // console.log("clearTags:", clearTags,"tags: ", tags)
     if(clearTags && tags){
       setTags([]);
     }
