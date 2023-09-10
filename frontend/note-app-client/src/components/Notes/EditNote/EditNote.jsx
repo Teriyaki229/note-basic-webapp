@@ -11,40 +11,42 @@ import ConfirmDialogBox from "../utils/ConfirmDialogBox";
 
 const EditNoteComponent = () => {
   const { id } = useParams();
-  const [note, setNote] = useState({});
+  // const [note, setNote] = useState({});
 
   const titleRef = useRef("");
   const tagsRef = useRef([]);
   const contentRef = useRef("");
 
-  const noteData = {
+  const [noteData, setNoteData] = useState({
     title: "",
     tags: [],
     content: "",
     date_created: "",
-  };
+  });
 
   useEffect(() => {
     NoteService.getNoteById(id)
       .then((response) => {
-        setNote(response.data);
+        setNoteData(response.data);
       })
       .catch((error) => console.log(error));
   }, [id]);
 
   useEffect(() => {
-    tagsRef.current = note.tags;
-    contentRef.current = note.content;
-    titleRef.current = note.title;
+    tagsRef.current = noteData.tags;
+    contentRef.current = noteData.content;
+    // titleRef.current = noteData.title;
     console.log(
-      "TagsRef:",
+      "TagsRef on mount:",
       tagsRef.current,
-      "contentRef:",
+      "contentRef on mount:",
       contentRef.current,
-      "titleRef:",
-      titleRef.current
+      "titleRef on mount:",
+      titleRef.current.value,
+      "note on mount: ",
+      noteData
     );
-  }, [note.tags, note.content, note.title]);
+  }, [noteData.tags, noteData.content, noteData.title]);
 
   const [alertMessage, setAlertMessage] = useState("");
   const [alertColor, setAlertColor] = useState("red");
@@ -55,7 +57,8 @@ const EditNoteComponent = () => {
   };
 
   const handleSubmitClick = () => {
-    const title = titleRef.current;
+    console.log('titleRef.current', titleRef.current.value)
+    const title = titleRef.current.value;
     const tags = tagsRef.current;
     const content = contentRef.current;
 
@@ -63,16 +66,9 @@ const EditNoteComponent = () => {
     const hour = d.getHours();
     const minute = d.getMinutes();
 
-    console.log("title:", title, "tags:", tags, "content:", content);
-
-    noteData.title = title;
-    noteData.tags = tags;
-    noteData.content = content;
-    noteData.date_created = `${d.getDate()}/${
-      d.getMonth() + 1
-    }/${d.getFullYear()} at ${
-      hour > 12 ? hour - 12 + ":" + minute + " pm" : hour + ":" + minute + " am"
-    }`;
+    // noteData.tags = tags;
+    // noteData.content = content;
+    // noteData.date_created = ;
 
     console.log(
       "noteData.title:",
@@ -108,6 +104,20 @@ const EditNoteComponent = () => {
       setAlertColor("red");
     } else {
       setShowConfirmDialog(true);
+      console.log("title:", title, "tags:", tags, "content:", content);
+
+      setNoteData({
+        title: title,
+        tags: tags,
+        content: content,
+        date_created: `${d.getDate()}/${
+          d.getMonth() + 1
+        }/${d.getFullYear()} at ${
+          hour > 12
+            ? hour - 12 + ":" + minute + " pm"
+            : hour + ":" + minute + " am"
+        }`,
+      });
     }
   };
 
@@ -130,7 +140,7 @@ const EditNoteComponent = () => {
       "date_created:",
       noteData.date_created
     );
-    
+
     NoteService.editNotebyId(
       id,
       noteData.title,
@@ -183,12 +193,12 @@ const EditNoteComponent = () => {
         name="titleInput"
         placeholder="Type a title here"
         ref={titleRef}
-        defaultValue={note.title}
+        defaultValue={noteData.title}
       />
       <br />
       <label className={styles.label}>Tags:</label>
       <Tag
-        setPreviousTags={note.tags}
+        setPreviousTags={noteData.tags}
         onTagChange={(event) => (tagsRef.current = event)}
       />
       {showConfirmDialog && (
@@ -203,7 +213,7 @@ const EditNoteComponent = () => {
       </label>
       <br />
       <Editor
-        setEditorContent={note.content}
+        setEditorContent={noteData.content}
         customOnChange={(event) => (contentRef.current = event)}
       />
       <div id={styles.wrapper}>
