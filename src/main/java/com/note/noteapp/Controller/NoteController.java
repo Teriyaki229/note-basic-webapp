@@ -28,7 +28,7 @@ public class NoteController {
     public ResponseEntity<Note> getNote(@PathVariable("id") String id){
         return new ResponseEntity<>(noteService.getNoteById(id), HttpStatus.OK);
     }
-    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PatchMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Note> editNote(@PathVariable("id") String id,@RequestBody Note note){
         return new ResponseEntity<>(noteService.editNoteById(id, note), HttpStatus.CREATED);
     }

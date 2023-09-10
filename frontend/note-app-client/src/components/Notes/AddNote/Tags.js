@@ -6,9 +6,9 @@
  */
 import { useState, useEffect } from "react";
 import styles from "./AddNoteComponent.module.css";
-import CustomAlert from "../utils/CustomAlert";
+import CustomAlert from "../utils/CustomAlert"; 
 
-const Tag = ({ onTagChange, clearTags}) => {
+const Tag = ({ onTagChange, clearTags, setPreviousTags}) => {
   const [tagInput, setTagInput] = useState("");
   const [tags, setTags] = useState([]);
   const [deletable, setDeletable] = useState({});
@@ -19,11 +19,21 @@ const Tag = ({ onTagChange, clearTags}) => {
     if(clearTags && tags){
       setTags([]);
     }
-  },[clearTags])
+
+    if(setPreviousTags && tags){
+      console.log(setPreviousTags)
+      setTags([...setPreviousTags])
+    }
+
+  },[clearTags, setPreviousTags])
 
   const handleTagInput = (event) => {
     setTagInput(event.target.value);
   };
+
+  const handleDismissAlert = () => {
+    setAlertMessage(null)
+  }
 
   const handleAddTag = () => {
     if (tagInput.trim() !== '' && tagInput.length < 30) {
@@ -76,10 +86,6 @@ const Tag = ({ onTagChange, clearTags}) => {
     tooltip.style.visibility = "hidden";
     tooltip.style.opacity = "0";
   };
-
-  const handleDismissAlert = ()=>{
-    setAlertMessage('');
-  }
 
   return (
     <div>

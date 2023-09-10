@@ -33,7 +33,7 @@ const CustomAlert = ({ message, onDismiss, redOrGreen }) => {
         }
       >
         <p>{message}</p>
-      </div>
+      </div> 
     )
   );
 };

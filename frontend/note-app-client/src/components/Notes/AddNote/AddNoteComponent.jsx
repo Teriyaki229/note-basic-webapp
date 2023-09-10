@@ -11,12 +11,10 @@ import ConfirmDialogBox from "../utils/ConfirmDialogBox";
  * @returns The AddNoteComponent.
  */
 const AddNoteComponent = () => {
-  const handleDismissAlert = () => {
-    setAlertMessage("");
-  };
+
   const [alertMessage, setAlertMessage] = useState("");
   const [alertColor, setAlertColor] = useState("red");
-  const [showConfirmDialog, setShowConfirmDialog] = useState(false);  
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
 
   const titleRef = useRef("");
   const tagsRef = useRef([]);
@@ -30,6 +28,10 @@ const AddNoteComponent = () => {
     content: "",
     date_created: "",
   };
+
+  const handleDismissAlert = () => {
+    setAlertMessage(null)
+  }
 
   const onConfirm = () => {
     setShowConfirmDialog(false);

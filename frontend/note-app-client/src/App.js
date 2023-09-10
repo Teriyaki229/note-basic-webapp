@@ -4,6 +4,7 @@ import HeaderComponent from "./components/Notes/utils/HeaderComponent";
 import ViewNoteComponent from "./components/Notes/ViewNote/ViewNoteComponent";
 import AddNoteComponent from "./components/Notes/AddNote/AddNoteComponent";
 import './index.css';
+import EditNoteComponent from "./components/Notes/EditNote/EditNote";
 function App() {
   return (
     <div>
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<ListNotesComponent />} />
           <Route path="/view/:id" element={<ViewNoteComponent />} />
           <Route path="/add" element={<AddNoteComponent />} />
+          <Route path="/edit/:id" element={<EditNoteComponent />} />
         </Routes>
       </Router>
     </div>

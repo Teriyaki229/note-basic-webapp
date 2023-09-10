@@ -22,7 +22,16 @@ class NoteService {
     });
   }
   deleteNotebyId(id){
+    console.log("id deleted is: "+id);
     return axios.delete(NOTE_BASE_API_URL+id)
+  }
+  editNotebyId(id, title, tags, content, date_created){
+    return axios.patch(NOTE_BASE_API_URL+id,{
+      title: title,
+      tags: tags,
+      content: content,
+      date_created: date_created
+    });
   }
 }
 

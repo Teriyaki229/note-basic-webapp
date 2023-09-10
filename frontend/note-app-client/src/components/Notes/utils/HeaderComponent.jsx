@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./styles.css";
+import { Link } from "react-router-dom";
 
 class HeaderComponent extends Component {
   /**
@@ -11,7 +12,7 @@ class HeaderComponent extends Component {
       <div>
         <nav className="headerNavBar">
           <h1>
-            <a href="http://localhost:3000/" style={{ textDecoration: "none", color: "hsl(47, 100%, 48%)", fontSize: "47px"}}>
+            <a href="/" style={{ textDecoration: "none", color: "hsl(47, 100%, 48%)", fontSize: "47px"}}>
               Taking Notes
             </a>
           </h1>
