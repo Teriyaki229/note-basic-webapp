@@ -5,9 +5,10 @@ import "./Editor.css";
  * A component that represents an editor.
  * @param {{function}} customOnChange - A custom function to handle the onChange event of the editor.
  * @param {{function}} clearContent - A function to clear the content of the editor.
+ * @param {{String}} setEditorContent - A String to set the content of the editor with the provided String.
  * @returns The Editor component.
  */
-const Editor = ({ customOnChange, clearContent }) => {
+const Editor = ({ customOnChange, clearContent, setEditorContent }) => {
   const [content, setContent] = useState("");
   const editor = useRef(null);
 
@@ -20,6 +21,10 @@ const Editor = ({ customOnChange, clearContent }) => {
 
   if(clearContent){
     editor.current.value="";
+  }
+
+  if(setEditorContent){
+    editor.current.value=setEditorContent;
   }
 
   return (
