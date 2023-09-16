@@ -77,7 +77,7 @@ Make sure you have the following installed:
 
 The Note App follows the MVCS (Model-View-Controller-Service) architectural pattern to maintain a clear separation of concerns within the application:
 
-- **Model**: The backend of the application, including the `NoteController`, `NoteService`, and `NoteRepository`, represents the Model. It handles data management, business logic, and data storage.
+- **Model**: The backend of the application, including the `NoteController`, `NoteService`, and `NoteRepository`, represents the Model. It handles data management, data storage and describes the object structure.
 
 - **View**: The frontend of the application, including components like `AddNoteComponent`, `EditNoteComponent`, `ListNotesComponent`, and others, represents the View. It focuses on presenting the user interface and interacting with users. Additionally, these View components also work as Controllers.
 
