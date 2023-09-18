@@ -38,7 +38,7 @@ Make sure you have the following installed:
 
    ```bash
    git clone https://github.com/Teriyaki229/note-basic-webapp/
-   cd note-app
+   cd note-basic-webapp
    ```
 
 2. **Database setup:**
