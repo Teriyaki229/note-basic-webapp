@@ -103,7 +103,7 @@ The project consists of the following main files and components:
 
 - **Backend**:
   - `NoteController.java`: Controller for handling HTTP requests.
-  - `NoteService.java`: Service layer for business logic.
+  - `NoteService.java`: Service layer for application logic.
   - `NoteRepository.java`: Data access layer for interacting with the database.
   - [REST API endpoints](https://github.com/Teriyaki229/noteObject-basic/blob/master/README.md#rest-api-endpoints) for creating, reading, updating, and deleting notes.
 
