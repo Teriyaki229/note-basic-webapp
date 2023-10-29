@@ -109,4 +109,4 @@ The project consists of the following main files and components:
 
 ## Acknowledgments
 
-This project is built on top of the [Basic Template Spring Web Application](https://github.com/Teriyaki229/noteObject-basic)
+This project is built on top of the [Basic Template Spring Web Application](https://github.com/Teriyaki229/noteObject-basic) and uses a Rich-Text-Editor [Jodit WYSIWYG Editor](https://www.npmjs.com/package/jodit-react)
