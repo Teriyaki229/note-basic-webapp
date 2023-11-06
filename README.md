@@ -48,8 +48,9 @@ Make sure you have the following installed:
 3. **Backend Setup:**
 
    ```bash
-   cd noteObject-basic
-   ./mvnw
+   .\mvnw
+   cd target
+   java -jar noteapp-0.0.1-SNAPSHOT.jar
    ```
 
    Make sure to configure your database settings in the `.env` file as [mentioned here](https://github.com/Teriyaki229/noteObject-basic#mongodb-configuration).
@@ -57,7 +58,7 @@ Make sure you have the following installed:
 4. **Frontend Setup:**
 
    ```bash
-   cd noteObject-basic/view/note-app-client
+   cd view/note-app-client
    npm install
    npm start
    ```
